@@ -1,7 +1,8 @@
 import React from "react";
-import css from "./css/style.module.css";
+import css from "../css/style.module.css";
 import { Link } from "react-router-dom";
-import Todolist from "./Todolist";
+import Todolist from "../component/Todolist";
+
 export default function Home() {
   return (
     <div className={css.home}>

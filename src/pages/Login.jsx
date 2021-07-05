@@ -1,20 +1,19 @@
 import React, { useContext, useState } from "react";
-import css from "./css/style.module.css";
+import css from "../css/style.module.css";
 import { Link } from "react-router-dom";
-import UserCtx from "./context/UserContext.jsx";
+import UserCtx from "../context/UserContext.jsx";
 
 export default function Login() {
   const ctx = useContext(UserCtx);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
   const emailHandler = (e) => {
-    setEmail(e.target.value);
+    ctx.setState({ ...ctx.state, email: e.target.value });
   };
   const passwordHandler = (e) => {
-    setPassword(e.target.value);
+    ctx.setState({ ...ctx.state, password: e.target.value });
   };
   const loginEventHandler = (e) => {
     e.preventDefault();
+    ctx.login();
   };
   return (
     <div className={css.logForm}>
@@ -44,7 +43,7 @@ export default function Login() {
               <p>энд дарна уу</p>
             </Link>
           </p>
-          <div className={css.btn} onClick={loginEventHandler()}>
+          <div className={css.btn} onClick={loginEventHandler}>
             Нэвтрэх
           </div>
         </div>

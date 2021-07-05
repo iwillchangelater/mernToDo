@@ -1,29 +1,38 @@
 import axios from "axios";
 import React, { useState } from "react";
-const init = { token: null };
+const init = { token: null, email: null, password: null, password1: null };
 const Context = React.createContext();
-const baseURL = "Http://localhost:4000/";
 
 export const UserProvider = (props) => {
   const [state, setState] = useState(init);
-  const register = async (email, password) => {
+
+  const register = async () => {
     try {
-      const res = await axios.post(baseURL + "users", { email, password });
-      console.log(res);
+      const res = await axios.post("http://localhost:4000/users", {
+        email: state.email,
+        password: state.password,
+      });
+      setState({ ...state, token: res.data.token });
     } catch (err) {
       console.log(err);
     }
   };
-  const login = async (email, password) => {
+  const login = async () => {
     try {
-      const res = await axios.get(baseURL + "users", { email, password });
-      console.log(res);
+      const res = await axios.post("http://localhost:4000/users/login", {
+        email: state.email,
+        password: state.password,
+      });
+      setState({ ...state, token: res.data.token });
     } catch (err) {
       console.log(err);
     }
   };
-  const ctxVar = { state, setState, register, login };
-  return <Context.Provider value={ctxVar}>{props.children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ state, setState, register, login }}>
+      {props.children}
+    </Context.Provider>
+  );
 };
 
 export default Context;

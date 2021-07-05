@@ -1,26 +1,23 @@
-import React, { UseContext, UseState } from "react";
-import css from "./css/style.module.css";
+import React, { useContext } from "react";
+import css from "../css/style.module.css";
 import { Link } from "react-router-dom";
-import UserCtx from "./context/UserContext";
+import UserCtx from "../context/UserContext";
 
 export default function Signup() {
-  const userContext = UseContext(UserCtx);
-  const [email, setEmail] = UseState(null);
-  const [password, setPassword] = UseState(null);
-  const [password1, setPassword1] = UseState(null);
+  const ctx = useContext(UserCtx);
   const emailHandler = (e) => {
-    setEmail(e.target.value);
+    ctx.setState({ ...ctx.state, email: e.target.value });
   };
   const passwordHandler = (e) => {
-    setPassword(e.target.value);
+    ctx.setState({ ...ctx.state, password: e.target.value });
   };
   const password1Handler = (e) => {
-    setPassword1(e.target.value);
+    ctx.setState({ ...ctx.state, password1: e.target.value });
   };
   const registerEventhandler = (e) => {
     e.preventDefault();
-    if (password === password1) {
-      userContext.register(email, password);
+    if (ctx.state.password === ctx.state.password1) {
+      ctx.register();
     } else {
       console.log("nuuts ug zorson");
     }
@@ -62,7 +59,7 @@ export default function Signup() {
               <p>Нэвтрэх</p>
             </Link>
           </p>
-          <div className={css.btn} onClick={registerEventhandler()}>
+          <div className={css.btn} onClick={registerEventhandler}>
             Бүртэгүүлэх
           </div>
         </div>
