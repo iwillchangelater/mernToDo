@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logForm {
+  width: 400px;
+  margin: 100px auto;
+}
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.form {
+  padding: 10px;
+  font-size: 20px;
+  border: 1px dotted;
+}
+.formField {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.formField label {
+  display: block;
+  margin-bottom: 5px;
+}
+.formField input {
+  width: 100%;
+  height: 40px;
+}
+
+.form .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form .footer .btn {
+  border: none;
+  background-color: lightskyblue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.form .footer .btn:hover {
+  cursor: pointer;
+  color: black;
+}
+.form .footer p {
+  display: inline;
+}
+/* home */
+.home {
+  width: 500px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  overflow: hidden;
+}
+.home header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 25px;
+  padding: 20px 10px;
+  background-color: lightgray;
+}
+.logout {
+  border: white 1px solid;
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+.logout:hover {
+  cursor: pointer;
+}
+.home .inputArea {
+  display: inline-flex;
+  width: 100%;
+  margin: 10px 0;
+}
+.home .content {
+  width: 100%;
+  padding: 10px;
+  overflow: auto;
+}
+.home .inputArea input {
+  width: 100%;
+  margin-right: 20px;
+}
+.btn {
+  padding: 10px 10px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.home .content .listItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 5px;
+  line-height: 1.5rem;
+}
+.home .content .listItem p {
+  padding: 5px;
+}
+.home .content .checkBox {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
