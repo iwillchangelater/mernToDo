@@ -1,15 +1,19 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
-export default function Todolist() {
-  const medeelel = " data";
+export default function Todolist(props) {
+  const data = [...props.data];
   return (
     <div>
-      <TodoListItem data={medeelel} />
-      <TodoListItem data={medeelel} />
-      <TodoListItem data={medeelel} />
-      <TodoListItem data={medeelel} />
-      <TodoListItem data={medeelel} />
-      <TodoListItem data={medeelel} />
+      {data.map((el) => {
+        return (
+          <TodoListItem
+            key={el["_id"]}
+            delete={props.delete}
+            id={el["_id"]}
+            desc={el["describe"]}
+          />
+        );
+      })}
     </div>
   );
 }
